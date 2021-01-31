@@ -25,3 +25,13 @@ if (x > y) {
 } else {
     alert('Они равны!');
 }
+
+//2.3
+var kilometres = 1000 * prompt('Enter the distance in kilometers'),
+    foot = 0.305 * prompt('Enter the distance in feet');
+
+if(kilometres > foot) {
+    alert('Расстояние в футах меньше');
+} else {
+    alert('Расстрояние в километрах меньше');
+}
