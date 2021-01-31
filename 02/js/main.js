@@ -8,13 +8,13 @@ if(age < 18 && !isSmoke){
     alert('Маме расскажу');
 }
 
-if(age > 18 && !isSmoke){
+if(age >= 18 && !isSmoke){
     alert('Молодец и не надо');
-} else if(age > 18 && isSmoke){
+} else if(age >= 18 && isSmoke){
     alert('Ну и зря');
 }
 
-//2.2
+/*//2.2
 var x = +prompt('Введите число'),
     y = +prompt('Введите еще одно число');
 
@@ -34,4 +34,4 @@ if(kilometres > foot) {
     alert('Расстояние в футах меньше');
 } else {
     alert('Расстрояние в километрах меньше');
-}
+}*/
