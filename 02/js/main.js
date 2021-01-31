@@ -13,3 +13,15 @@ if(age > 18 && !isSmoke){
 } else if(age > 18 && isSmoke){
     alert('Ну и зря');
 }
+
+//2.2
+var x = +prompt('Введите число'),
+    y = +prompt('Введите еще одно число');
+
+if (x > y) {
+    alert('Число ' + x + ' больше числа ' + y);
+} else if(x < y) {
+    alert(('Число ' + y + ' больше числа ' + x));
+} else {
+    alert('Они равны!');
+}
