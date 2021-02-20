@@ -15,16 +15,15 @@ var capCharStr = firstCharToCap(iLearnJS);
 console.log(capCharStr);
 
 // Third task
-var testText = 'var_test_text';
-var result = testText.split('_').reduce( function (acc, curr, index) {
-    if (index > 0) curr = firstCharToCap(curr);
-    return acc+curr;
-});
+var testText = 'var_test_text_for_my_teacher';
+var result = testText.split('_').reduce((acc, curr) => acc + firstCharToCap(curr));
 
 console.log(result);
 
 //Fourth task
-console.log(Math.round(Math.random() * 50));
+console.log(Math.random() * 50);
+
+
 
 
 
