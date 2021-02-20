@@ -23,6 +23,11 @@ var result = testText.split('_').reduce( function (acc, curr, index) {
 
 console.log(result);
 
+//Fourth task
+console.log(Math.round(Math.random() * 50));
+
+
+
 
 
 function firstCharToCap(str){
