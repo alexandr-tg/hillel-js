@@ -11,5 +11,20 @@ console.log(slice);
 
 // Second task
 var iLearnJS = 'я учу javascript!';
-var capCharStr = iLearnJS.charAt(0).toUpperCase() + iLearnJS.slice(1);
+var capCharStr = firstCharToCap(iLearnJS);
 console.log(capCharStr);
+
+// Third task
+var testText = 'var_test_text';
+var result = testText.split('_').reduce( function (acc, curr, index) {
+    if (index > 0) curr = firstCharToCap(curr);
+    return acc+curr;
+});
+
+console.log(result);
+
+
+
+function firstCharToCap(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
