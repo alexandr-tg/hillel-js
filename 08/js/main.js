@@ -17,7 +17,6 @@ console.log(capCharStr);
 // Third task
 var testText = 'var_test_text_for_my_teacher';
 var result = testText.split('_').reduce((acc, curr) => acc + firstCharToCap(curr));
-
 console.log(result);
 
 //Fourth task
