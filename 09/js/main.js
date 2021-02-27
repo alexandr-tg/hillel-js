@@ -9,4 +9,20 @@ var arr = {
     'en':['blue', 'red', 'green'],
 };
 
-document.write(arr['ru'][0]);
+document.write(arr['ru'][0] + '<br>');
+
+//Third task
+var anotherArr = {
+    'ru':['голубой', 'красный', 'зеленый'],
+
+    get colors() {
+        return this['ru'];
+    },
+
+    set addColor(value) {
+        this['ru'].push(value);
+    }
+};
+
+anotherArr.addColor = 'Желтый';
+document.write(anotherArr.colors);
