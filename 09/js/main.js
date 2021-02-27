@@ -16,7 +16,9 @@ var anotherArr = {
     'ru':['голубой', 'красный', 'зеленый'],
 
     get colors() {
-        return this['ru'];
+        var result = '';
+        this['ru'].forEach(value => result += ' ' + value);
+        return result;
     },
 
     set addColor(value) {
