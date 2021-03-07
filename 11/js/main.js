@@ -1,4 +1,5 @@
 var elem = document.getElementById('elem');
+var obj = {value: elem.value};
 
 function func(surname, name) {
 
@@ -6,7 +7,7 @@ function func(surname, name) {
 
 }
 
-var func = func.bind({value: elem.value});
+var func = func.bind(obj);
 
 func('Иванов', 'Иван');
 func('Петров', 'Петр');
@@ -16,5 +17,4 @@ function func1() {
     alert(this.value);
 }
 
-func1.call({value: elem.value});
-
+func1.call(obj);
