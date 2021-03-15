@@ -7,7 +7,7 @@ function func(surname, name) {
 
 }
 
-var func = func.bind(obj);
+var func = func.bind(elem);
 
 func('Иванов', 'Иван');
 func('Петров', 'Петр');
