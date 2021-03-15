@@ -232,10 +232,10 @@ var data = [
 ];
 
 importTo = document.querySelector('.post-wrap');
-data.sort((a, b) => a.email > b.email ? 1 : -1);
+var sortedData = data.slice().sort((a, b) => a.email > b.email ? 1 : -1);
 
-for (var i = 0; i < data.length; i++) {
-    createPost(data[i], importTo);
+for (var i = 0; i < sortedData.length; i++) {
+    createPost(sortedData[i], importTo);
 }
 
 function createPost(post, importTo){
