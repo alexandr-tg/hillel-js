@@ -5,30 +5,30 @@ var block = document.querySelector('#blueRect');
 function moveBlock(event) {
     var step = 10;
     var blockStyle = block.getAttribute('style');
-    var leftRegExp = blockStyle.match('(left): *?(([0-9]*)(px)?);');
-    var topRegExp = blockStyle.match('(top): *?(([0-9]*)(px)?);');
+    var leftValue = blockStyle.match('(left): *?(([0-9]*)(px)?);');
+    var topValue = blockStyle.match('(top): *?(([0-9]*)(px)?);');
     var newValue;
 
     switch(event.key){
         case 'ArrowRight' :
-            newValue = 'left:' + (parseInt(leftRegExp[2]) + step + 'px;');
-            block.setAttribute('style', blockStyle.replaceAll(leftRegExp[0], newValue));
+            newValue = 'left:' + (parseInt(leftValue[2]) + step + 'px;');
+            block.setAttribute('style', blockStyle.replaceAll(leftValue[0], newValue));
             break;
         case 'ArrowLeft' :
-            if(positionCheck(parseInt(leftRegExp[2]))){
-                newValue = 'left:' + (parseInt(leftRegExp[2]) - step + 'px;');
-                block.setAttribute('style', blockStyle.replaceAll(leftRegExp[0], newValue));
+            if(positionCheck(parseInt(leftValue[2]))){
+                newValue = 'left:' + (parseInt(leftValue[2]) - step + 'px;');
+                block.setAttribute('style', blockStyle.replaceAll(leftValue[0], newValue));
             }
             break;
         case 'ArrowUp' :
-            if(positionCheck(parseInt(topRegExp[2]))){
-                newValue = 'top:' + (parseInt(topRegExp[2]) - step + 'px;');
-                block.setAttribute('style', blockStyle.replaceAll(topRegExp[0], newValue));
+            if(positionCheck(parseInt(topValue[2]))){
+                newValue = 'top:' + (parseInt(topValue[2]) - step + 'px;');
+                block.setAttribute('style', blockStyle.replaceAll(topValue[0], newValue));
             }
             break;
         case 'ArrowDown' :
-            newValue = 'top:' + (parseInt(topRegExp[2]) + step + 'px;');
-            block.setAttribute('style', blockStyle.replaceAll(topRegExp[0], newValue));
+            newValue = 'top:' + (parseInt(topValue[2]) + step + 'px;');
+            block.setAttribute('style', blockStyle.replaceAll(topValue[0], newValue));
             break;
     }
 }
