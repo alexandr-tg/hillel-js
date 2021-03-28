@@ -3,7 +3,7 @@ document.body.addEventListener('keydown', moveBlock)
 var block = document.querySelector('#blueRect');
 
 function moveBlock(event) {
-    var step = 10;
+    const step = 10;
     var blockStyle = block.getAttribute('style');
     var leftValue = blockStyle.match('(left): *?(([0-9]*)(px)?);');
     var topValue = blockStyle.match('(top): *?(([0-9]*)(px)?);');
