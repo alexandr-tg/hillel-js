@@ -37,21 +37,22 @@ function positionCheck(position){
     return position >= 10;
 }
 
-/* Так же можно было сделать через обращение к block.style.left
-switch(event.key){
-    case 'ArrowRight' :
-        block.style.left = parseInt(block.style.left) + step + 'px';
-        break;
-    case 'ArrowLeft' :
-        if(positionCheck(parseInt(block.style.left))){
-            block.style.left = parseInt(block.style.left) - step + 'px';
-        }
-        break;
-    case 'ArrowUp' :
-        if(positionCheck(parseInt(block.style.top))){
-            block.style.top = parseInt(block.style.top) - step + 'px';
-        }
-    case 'ArrowDown' :
-        block.style.top = parseInt(block.style.top) + step + 'px';
-        break;
-}*/
+/* Так же можно было сделать через обращение к block.style
+switch(event.key) {
+        case 'ArrowRight' :
+            block.style.left = parseInt(block.style.left) + step + 'px';
+            break;
+        case 'ArrowLeft' :
+            if(positionCheck(parseInt(block.style.left))){
+                block.style.left = parseInt(block.style.left) - step + 'px';
+            }
+            break;
+        case 'ArrowUp' :
+            if(positionCheck(parseInt(block.style.top))){
+                block.style.top = parseInt(block.style.top) - step + 'px';
+            }
+            break;
+        case 'ArrowDown' :
+            block.style.top = parseInt(block.style.top) + step + 'px';
+            break;
+} */
