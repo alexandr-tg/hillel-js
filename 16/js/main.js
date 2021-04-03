@@ -232,9 +232,7 @@ var users = [
     }
 ];
 
-users.forEach(function (e) {
-    propertyChanger(e);
-});
+users.forEach(e => propertyChanger(e));
 
 
 function propertyChanger(object){
@@ -247,13 +245,12 @@ function propertyChanger(object){
             Object.defineProperty(object, key, {
                 enumerable: false
             });
-        }
-        if(key === 'address'){
+        }else if(key === 'address'){
             Object.defineProperty(object[key], 'geo', {
                 enumerable: false
             });
         }
+        document.write(object[key] + '<br>');
     }
-    console.log(object);
 }
 
