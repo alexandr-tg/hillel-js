@@ -238,9 +238,7 @@ users.forEach(function (e) {
     enumerableChanger(e, 'company', false);
     enumerableChanger(e, 'website', false);
     enumerableChanger(e["address"], 'geo', false);
-    for (var key in e) {
-        document.write(e[key] + '<br>')
-    }
+    showWholeObject(e);
 });
 
 function writableChanger(object, key, value) {
@@ -253,5 +251,19 @@ function enumerableChanger(object, key, value) {
     Object.defineProperty(object,key, {
         enumerable: value
     })
+}
+
+function showWholeObject(e) {
+    for (var key in e) {
+        if (isObject(e[key])){
+            showWholeObject(e[key])
+        } else {
+            document.write(key + ':' + ' ' + e[key] + '<br>');
+        }
+    }
+}
+
+function isObject(object) {
+    return Object.prototype.toString.call(object) === '[object Object]';
 }
 
