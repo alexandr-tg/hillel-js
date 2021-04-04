@@ -232,25 +232,26 @@ var users = [
     }
 ];
 
-users.forEach(e => propertyChanger(e));
-
-
-function propertyChanger(object){
-    for (var key in object) {
-        if(key === 'name' || key === 'phone'){
-            Object.defineProperty(object, key, {
-                writable: false
-            });
-        }else if(key === 'company' || key === 'website'){
-            Object.defineProperty(object, key, {
-                enumerable: false
-            });
-        }else if(key === 'address'){
-            Object.defineProperty(object[key], 'geo', {
-                enumerable: false
-            });
-        }
-        document.write(object[key] + '<br>');
+users.forEach(function (e) {
+    writableChanger(e, 'name', false);
+    writableChanger(e, 'phone', false);
+    enumerableChanger(e, 'company', false);
+    enumerableChanger(e, 'website', false);
+    enumerableChanger(e["address"], 'geo', false);
+    for (var key in e) {
+        document.write(e[key] + '<br>')
     }
+});
+
+function writableChanger(object, key, value) {
+    Object.defineProperty(object,key, {
+        writable: value
+    })
+}
+
+function enumerableChanger(object, key, value) {
+    Object.defineProperty(object,key, {
+        enumerable: value
+    })
 }
 
