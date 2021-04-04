@@ -255,11 +255,7 @@ function enumerableChanger(object, key, value) {
 
 function showWholeObject(e) {
     for (var key in e) {
-        if (isObject(e[key])){
-            showWholeObject(e[key])
-        } else {
-            document.write(key + ':' + ' ' + e[key] + '<br>');
-        }
+        isObject(e[key]) ? showWholeObject(e[key]) : document.write(`${key}: ${e[key]} <br>`);
     }
 }
 
