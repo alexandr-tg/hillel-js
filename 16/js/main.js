@@ -239,6 +239,7 @@ users.forEach(function (e) {
     enumerableChanger(e, 'website', false);
     enumerableChanger(e["address"], 'geo', false);
     showWholeObject(e);
+    document.write(`=======================<br>`)
 });
 
 function writableChanger(object, key, value) {
