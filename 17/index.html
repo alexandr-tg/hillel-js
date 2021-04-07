@@ -72,61 +72,50 @@
 
 <script>
 
-
-
     var salePopupBay = document.querySelector('.sale-popup-bay');
-
     var salePopupClose = document.querySelector('.sale-popup-close');
-
     var popupBlock = document.querySelector('.modal');
-
     var leftTime = document.querySelector('.left-time');
-
-    var timer = setInterval(function () {
-        var now = new Date();
-        var endDate = new Date(2021, 3, 15).getTime();
-        var left = endDate - now;
-        var result = new Date(left);
-        var text = `${result.getUTCDate()-1}:${result.getUTCHours()}:${result.getUTCMinutes()}:${result.getUTCSeconds()}`;
-        leftTime.innerText = text;
-    }, 1000);
-
+    setInterval(showLeftTime, 1000);
 
 
     salePopupBay.addEventListener('click', popupBay);
-
     salePopupClose.addEventListener('click', popupClose);
 
 
 
     function popupBay() {
-
         localStorage.setItem('Sale', true);
-
         localStorage.setItem('ShowSalePopup', JSON.stringify({isShow: false,time: 0}));
-
-        var info = JSON.parse(localStorage.getItem('ShowSalePopup'));
         hidePopup();
     }
 
 
-
     function popupClose() {
-
         localStorage.setItem('Sale', false);
-
         localStorage.setItem('ShowSalePopup', JSON.stringify({isShow: true, time: 10000}));
         hidePopup();
         var info = JSON.parse(localStorage.getItem('ShowSalePopup'));
         if(info.isShow) setInterval(showPopup, info.time);
     }
 
+
     function hidePopup(){
         popupBlock.classList.add('hide');
     }
 
+
     function showPopup(){
         popupBlock.classList.remove('hide');
+    }
+
+
+    function showLeftTime(){
+        var endDate = new Date(2021, 3, 15).getTime();
+        var left = endDate - new Date();
+        var result = new Date(left);
+        var text = `${result.getUTCDate()-1}:${result.getUTCHours()}:${result.getUTCMinutes()}:${result.getUTCSeconds()}`;
+        leftTime.innerText = text;
     }
 
 </script>
