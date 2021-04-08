@@ -96,7 +96,7 @@
         localStorage.setItem('ShowSalePopup', JSON.stringify({isShow: true, time: 10000}));
         hidePopup();
         var info = JSON.parse(localStorage.getItem('ShowSalePopup'));
-        if(info.isShow) setInterval(showPopup, info.time);
+        if(info.isShow) setTimeout(showPopup, info.time);
     }
 
 
