@@ -1,8 +1,6 @@
 var options = "toolbar=0,scrollbars=0,menubar=0,location=0,status=0,titlebar=0,directories=0,width=500,height=500";
 var newWin = window.open('', 'Frontend', options);
-var img = new Image();
-img.src = 'img/cat.jpg';
-newWin.document.body.innerHTML = `<img src="${img.src}" alt="">`;
+newWin.document.body.innerHTML = `<img src="${getAbsoluteImgPath('img/cat.jpg')}" alt="">`;
 
 var intervalID = newWin.setInterval(moveWindow, 1000, newWin);
 var timeoutID = newWin.setTimeout(closeWindow, 15000, newWin);
@@ -19,4 +17,10 @@ function closeWindow(window) {
 
 function stopInterval(id) {
     clearInterval(id);
+}
+
+function getAbsoluteImgPath(path){
+    var img = new Image();
+    img.src = path;
+    return img.src;
 }
