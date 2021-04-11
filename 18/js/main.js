@@ -5,7 +5,7 @@ newWin.document.body.innerHTML = `<img src="${getAbsoluteImgPath('img/cat.jpg')}
 var intervalID = newWin.setInterval(moveWindow, 1000, newWin);
 var timeoutID = newWin.setTimeout(closeWindow, 15000, newWin);
 
-if(newWin.closed) stopInterval(intervalID);
+if(newWin.closed) clearInterval(intervalID);
 
 function moveWindow(window) {
     window.moveTo(Math.random() * window.opener.innerWidth, Math.random() * window.opener.innerHeight);
@@ -13,10 +13,6 @@ function moveWindow(window) {
 
 function closeWindow(window) {
     window.close();
-}
-
-function stopInterval(id) {
-    clearInterval(id);
 }
 
 function getAbsoluteImgPath(path){
