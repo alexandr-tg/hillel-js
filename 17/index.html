@@ -110,6 +110,13 @@
     }
 
 
+    function getLeftTime(){
+        var endDate = new Date(2021, 3, 15).getTime();
+        var left = endDate - new Date();
+        var result = new Date(left);
+        var text = `${result.getUTCDate()-1}:${result.getUTCHours()}:${result.getUTCMinutes()}:${result.getUTCSeconds()}`;
+    }
+
     function showLeftTime(){
         var endDate = new Date(2021, 3, 15).getTime();
         var left = endDate - new Date();
