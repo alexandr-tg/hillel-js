@@ -186,7 +186,7 @@
     const todoList = document.querySelector('.todo-list');
     const isCompleted = document.querySelector('.isComplited');
     const searchInput = document.querySelector('.searchInput');
-    const sortType = document.querySelector('.sort');
+    const sortOption = document.querySelector('.sort');
 
     renderList(data);
 
@@ -218,9 +218,8 @@
         filtersToParams(data, searchText, 'search');
     });
 
-    sortType.addEventListener('change', (event) => {
-        let value = sortType;
-        let currentOption = value.options[value.options.selectedIndex].className;
+    sortOption.addEventListener('change', (event) => {
+        let currentOption = sortOption.options[sortOption.options.selectedIndex].className;
         history.pushState({}, '', `?sort=${currentOption}`);
 
         filtersToParams(data, currentOption, 'sort');
