@@ -255,13 +255,13 @@
     }
 
     function descSort(a, b) {
-        const bandA = a.title.toUpperCase();
-        const bandB = b.title.toUpperCase();
+        const valA = a.title.toUpperCase();
+        const valB = b.title.toUpperCase();
 
         let comparison = 0;
-        if (bandA > bandB) {
+        if (valA > valB) {
             comparison = 1;
-        } else if (bandA < bandB) {
+        } else if (valA < valB) {
             comparison = -1;
         }
         return comparison;
