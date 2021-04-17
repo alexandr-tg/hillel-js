@@ -7,10 +7,21 @@ const allSumInput = document.querySelector('input[data-name="allSumInput"]');
 const submitBtn = document.querySelector('input[data-submit="totalSum"]');
 submitBtn.addEventListener('click', sum);
 
+
 function sum(){
-    if(!emptyCheck(firstInput.value) && !emptyCheck(secondInput.value) && !emptyCheck(thirdInput.value)) {
-        if(isIntegerCheck(parseInt(firstInput.value)) && isIntegerCheck(parseInt(secondInput.value)) && isIntegerCheck(parseInt(thirdInput.value))){
-            allSumInput.value = parseInt(firstInput.value) + parseInt(secondInput.value) + parseInt(thirdInput.value);
+    var validFirstValue = validation(firstInput.value);
+    var validSecondValue = validation(secondInput.value);
+    var validThirdValue = validation(thirdInput.value);
+    if(validFirstValue && validSecondValue && validThirdValue) {
+        allSumInput.value = validFirstValue + validSecondValue + validThirdValue;
+    }
+}
+
+function validation(value){
+    if(!emptyCheck(value)) {
+        var result = parseInt(value);
+        if (isNumCheck(result)){
+            return result;
         }
     }
 }
@@ -19,7 +30,7 @@ function emptyCheck(value) {
     return value === '';
 }
 
-function isIntegerCheck(value) {
+function isNumCheck(value) {
     if(!isNaN(value) && typeof value === 'number') return true;
     return false;
 }
