@@ -5,12 +5,12 @@ var sumSpan = document.querySelector('span[name=sum]');
 
 
 typeOption.addEventListener('change', showModelInfo);
-timeRange.addEventListener('input', setRangeValue);
+timeRange.addEventListener('input', showRangeValue);
 typeOption.addEventListener('change', showSum);
 timeRange.addEventListener('change', showSum);
 isPilot.addEventListener('change', showSum);
 
-setRangeValue();
+showRangeValue();
 showModelInfo();
 
 
@@ -41,7 +41,7 @@ function showModelInfo(){
     }
 }
 
-function setRangeValue(){
+function showRangeValue(){
     var timeValueSpan = document.querySelector('span[name=timeValue]');
     timeValueSpan.innerText = timeRange.value;
 }
@@ -50,5 +50,5 @@ function showSum(){
     var pricePerHour = typeOption.value;
     var numberOfHours = timeRange.value;
     var doesPilotNeed = isPilot.checked ? 1000 : 0;
-    sumSpan.innerText = (pricePerHour * numberOfHours) + doesPilotNeed;
+    sumSpan.innerText = (pricePerHour * numberOfHours) + doesPilotNeed + ' грн.';
 }
