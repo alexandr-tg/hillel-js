@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="style/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Аренда самолета</h1>
+    <div>
+        Тип самолета:
+        <select name="model">
+            <option class="hide" value="0"></option>
+            <option value="3000">Pipistrel Virus SW</option>
+            <option value="3500">Cessna 172</option>
+            <option value="6500">Piper Aerostar 700 Superstar</option>
+            <option value="7000">BeachCraft King Air 200</option>
+            <option value="25000">Cirrus Vision Jet</option>
+        </select>
+    </div>
+    <img src="" alt="">
+    <div>Время аренды:<input type="range" name="time-range" min="1" max="24" value="1"><span name="timeValue"></span></div>
+    <div>Наличие пилота:<input type="checkbox" name="enabled"></div>
+    <div>Стоимость:<span name="sum"></span></div>
+<script src="js/main.js"></script>
+</body>
+</html>
