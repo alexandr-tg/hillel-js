@@ -1,0 +1,19 @@
+section {
+    display: none;
+}
+
+.active_block {
+    background-color: rgb(206, 200, 200);
+    display: block;
+    margin: 0 auto;
+    max-width: 60%;
+    padding: 20px 40px;
+    border: 1px solid #cccc;
+    border-radius: 15px;
+}
+
+img {
+    display: block;
+    height: auto;
+    width: 500px;
+}

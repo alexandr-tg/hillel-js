@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+
+<h2>Расчёт калорий</h2>
+
+<section class="active_block block_1">
+    <h3>Выберите ваш пол:</h3>
+    <label><input type="radio" data-name="one" name="gender">Male</label>
+    <label><input type="radio" data-name="two" name="gender">Female</label>
+
+
+    <hr>
+    <h3>Введите ваш рост:</h3>
+    <label><input type="range" name="height" min="150" max="220"><span name="height"></span></label>
+
+    <hr>
+    <h3>Введите ваш текущий вес:</h3>
+    <label><input type="text" name="weight"></label>
+
+    <hr>
+    <h3>Введите ваш желаемый вес:</h3>
+    <label><input type="text" name="wishful-weight"></label>
+
+    <div>
+        <button data-page='2'>Next</button>
+    </div>
+</section>
+
+<section class="block_2">
+    <h3>Выберите вашу активность:</h3>
+    <input type="range" name="activity" min="1" max="3"><span name="activity"></span><img src="" alt="">
+
+    <div>
+        <button data-page='1'>Prev</button>
+        <button data-page='3'>Next</button>
+    </div>
+
+</section>
+
+<section class="block_3">
+    <h3>Выберите желаемый результат:</h3>
+    <label><input type="range"></label>
+
+    <div>
+        <button data-page='2'>Prev</button>
+        <button data-page='4'>Next</button>
+    </div>
+
+</section>
+
+<section class="block_4 results">
+    <h3>Вам необхожимо принимать не больше <span></span> кКал в день.</h3>
+
+    <div>
+        <button data-page='3'>Prev</button>
+    </div>
+</section>
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
