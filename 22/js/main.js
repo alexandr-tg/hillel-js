@@ -6,4 +6,5 @@ fetch('https://api.github.com/users')
             console.log(data[i].avatar_url);
             console.log(data[i].id);
         }
-    });
+    })
+    .catch((error) => console.log(error));
