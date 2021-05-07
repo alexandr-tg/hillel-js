@@ -15,5 +15,23 @@ function start(){
     }
 }
 
+// Second Task
+
+let colors =  ['red', 'green', 'blue'];
+
+let p = document.querySelector('p');
+
+setInterval(changeColor, 1000);
+
+let counter = 0;
+
+function changeColor() {
+    counter = (counter + 1) % colors.length;
+    p.style.color = colors[counter];
+}
+
+
+
+
 
 
