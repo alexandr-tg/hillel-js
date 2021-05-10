@@ -8,13 +8,13 @@ for (let i = 0; i < inputList.length; i++) {
 }
 
 function nextValue(e){
-    let value = event.target.value;
-    value > 0 ? this.nextElementSibling.focus() : event.target.value = value.replace(/[^\d]/g, '');
+    let value = e.target.value;
+    value >= 0 ? this.nextElementSibling.focus() : e.target.value = value.replace(/[^\d]/g, '');
 }
 
 function prevValue(e){
     if(e.keyCode === 8) {
-        this.previousElementSibling.value = null;
+        this.previousElementSibling.value = this.value = null;
         this.previousElementSibling.focus();
     }
 }
