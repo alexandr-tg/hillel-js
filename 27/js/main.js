@@ -6,8 +6,6 @@ let today = new Date(),
 
 today = `${dd}/${mm}/${yyyy}`;
 
-
-
 let isCookie = getCookieByKey('name') && getCookieByKey('entryDate');
 if (isCookie) document.body.innerText = 'Welcome';
 
@@ -16,10 +14,12 @@ if (performance.navigation.type === 1 && isCookie) setCookie('name', 'Igor', coo
 if(performance.navigation.type === 1 && !isCookie){
     document.body.innerHTML = `<span>Пожалуйста, обновите куки!</span><br><input type="button" value="Update me!">`;
     let button = document.querySelector('input');
-    button.addEventListener('click', setCookie.bind(null, 'name', 'Igor', cookieExpires));
+    button.addEventListener('click', () =>{
+        setCookie('name', 'Igor', cookieExpires);
+        setCookie('entryDate', today, cookieExpires);
+        document.body.innerText = 'Welcome';
+    });
 }
-
-
 
 
 function getCookieByKey(name){
@@ -36,5 +36,4 @@ function getCookieByKey(name){
 function setCookie(name, value, expires){
     document.cookie = `${name}=${value};expires=${expires}`;
 }
-
 
