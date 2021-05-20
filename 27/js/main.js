@@ -6,6 +6,12 @@ let today = new Date(),
 
 today = `${dd}/${mm}/${yyyy}`;
 
+if(isFirstVisit()) {
+    setVisitStatus();
+    setCookie('name', 'Igor', cookieExpires);
+    setCookie('entryDate', today, cookieExpires);
+}
+
 let isCookie = getCookieByKey('name') && getCookieByKey('entryDate');
 if (isCookie) document.body.innerText = 'Welcome';
 
@@ -33,7 +39,14 @@ function getCookieByKey(name){
     return result;
 }
 
-function setCookie(name, value, expires){
+function setCookie(name, value, expires = false){
     document.cookie = `${name}=${value};expires=${expires}`;
 }
 
+function isFirstVisit(){
+    return !getCookieByKey('firstVisit');
+}
+
+function setVisitStatus() {
+    setCookie('firstVisit', false);
+}
