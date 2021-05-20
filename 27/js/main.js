@@ -6,29 +6,26 @@ let today = new Date(),
 
 today = `${dd}/${mm}/${yyyy}`;
 
-
+//Проверка на первое посещение
 if(!isVisitedEarly()) {
     setVisitStatus();
-    setCookie('name', 'Igor', cookieExpires);
-    setCookie('entryDate', today, cookieExpires);
+    setNameAndEntryDateCookie();
+} else {
+    showUpdateCookieInfo();
 }
 
+//Если куки есть, отображаем фразу Welcome
 let isCookie = getCookieByKey('name') && getCookieByKey('entryDate');
 if (isCookie) document.body.innerText = 'Welcome';
 
+//Если после обновледия страници куки все еще живи перегружаем их
 if (performance.navigation.type === 1 && isCookie) {
-    setCookie('name', 'Igor', cookieExpires);
-    setCookie('entryDate', today, cookieExpires);
+    setNameAndEntryDateCookie();
 };
 
+//Если после обновления страници куки мертвы, просим обновить их
 if(performance.navigation.type === 1 && !isCookie){
-    document.body.innerHTML = `<span>Пожалуйста, обновите куки!</span><br><input type="button" value="Update me!">`;
-    let button = document.querySelector('input');
-    button.addEventListener('click', () =>{
-        setCookie('name', 'Igor', cookieExpires);
-        setCookie('entryDate', today, cookieExpires);
-        document.body.innerText = 'Welcome';
-    });
+    showUpdateCookieInfo();
 }
 
 
@@ -53,4 +50,18 @@ function isVisitedEarly(){
 
 function setVisitStatus() {
     setCookie('isVisited', true);
+}
+
+function setNameAndEntryDateCookie(){
+    setCookie('name', 'Igor', cookieExpires);
+    setCookie('entryDate', today, cookieExpires);
+}
+
+function showUpdateCookieInfo(){
+    document.body.innerHTML = `<span>Пожалуйста, обновите куки!</span><br><input type="button" value="Update me!">`;
+    let button = document.querySelector('input');
+    button.addEventListener('click', () =>{
+        setNameAndEntryDateCookie();
+        document.body.innerText = 'Welcome';
+    });
 }
