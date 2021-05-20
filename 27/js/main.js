@@ -6,7 +6,8 @@ let today = new Date(),
 
 today = `${dd}/${mm}/${yyyy}`;
 
-if(isFirstVisit()) {
+
+if(!isVisitedEarly()) {
     setVisitStatus();
     setCookie('name', 'Igor', cookieExpires);
     setCookie('entryDate', today, cookieExpires);
@@ -15,7 +16,10 @@ if(isFirstVisit()) {
 let isCookie = getCookieByKey('name') && getCookieByKey('entryDate');
 if (isCookie) document.body.innerText = 'Welcome';
 
-if (performance.navigation.type === 1 && isCookie) setCookie('name', 'Igor', cookieExpires);
+if (performance.navigation.type === 1 && isCookie) {
+    setCookie('name', 'Igor', cookieExpires);
+    setCookie('entryDate', today, cookieExpires);
+};
 
 if(performance.navigation.type === 1 && !isCookie){
     document.body.innerHTML = `<span>Пожалуйста, обновите куки!</span><br><input type="button" value="Update me!">`;
@@ -43,10 +47,10 @@ function setCookie(name, value, expires = false){
     document.cookie = `${name}=${value};expires=${expires}`;
 }
 
-function isFirstVisit(){
-    return !getCookieByKey('firstVisit');
+function isVisitedEarly(){
+    return getCookieByKey('isVisited');
 }
 
 function setVisitStatus() {
-    setCookie('firstVisit', false);
+    setCookie('isVisited', true);
 }
