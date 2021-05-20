@@ -61,8 +61,7 @@ function setNameAndEntryDateCookie(){
 
 function showUpdateCookieInfo(){
     document.body.innerHTML = `<span>Пожалуйста, обновите куки!</span><br><input type="button" value="Update me!">`;
-    let button = document.querySelector('input');
-    button.addEventListener('click', () =>{
+    document.querySelector('input').addEventListener('click', () =>{
         setNameAndEntryDateCookie();
         document.body.innerText = 'Welcome';
     });
