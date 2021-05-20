@@ -21,12 +21,15 @@ if (isCookie) document.body.innerText = 'Welcome';
 //Если после обновледия страници куки все еще живи перегружаем их
 if (performance.navigation.type === 1 && isCookie) {
     setNameAndEntryDateCookie();
-};
+}
 
 //Если после обновления страници куки мертвы, просим обновить их
 if(performance.navigation.type === 1 && !isCookie){
     showUpdateCookieInfo();
 }
+
+
+
 
 
 function getCookieByKey(name){
