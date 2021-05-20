@@ -14,19 +14,18 @@ if(!isVisitedEarly()) {
     showUpdateCookieInfo();
 }
 
-//Если куки есть, отображаем фразу Welcome
+//Проверка на наличии кук
 let isCookie = getCookieByKey('name') && getCookieByKey('entryDate');
+
+//Если куки есть, отображаем фразу Welcome
 if (isCookie) document.body.innerText = 'Welcome';
 
-//Если после обновледия страници куки все еще живи перегружаем их
-if (performance.navigation.type === 1 && isCookie) {
-    setNameAndEntryDateCookie();
-}
+//Если после обновления страницы куки все еще живи перегружаем их
+if (performance.navigation.type === 1 && isCookie) setNameAndEntryDateCookie();
 
 //Если после обновления страници куки мертвы, просим обновить их
-if(performance.navigation.type === 1 && !isCookie){
-    showUpdateCookieInfo();
-}
+if(performance.navigation.type === 1 && !isCookie) showUpdateCookieInfo();
+
 
 
 
